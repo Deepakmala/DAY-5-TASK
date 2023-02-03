@@ -1,0 +1,236 @@
+1.Do the below programs in anonymous function & IIFE.
+
+a. print odd numbers in an array
+
+anonymous functions:
+let arr = [1,2,3,4,5];
+arr.forEach(function(val) {
+  if (val % 2 !== 0) {
+    console.log(val);
+  }
+});
+
+
+
+
+IIFE:
+let arr = [1,2,3,4,5];
+arr.forEach(val => {
+  if (val % 2 !== 0) {
+    console.log(val);
+  }
+});
+
+
+
+b. Convert all the strings to title caps in a string array
+
+anonymous function:
+let arr = ["hello", "world"];
+let result = arr.map(function(val) {
+  return val.charAt(0).toUpperCase() + val.slice(1);
+});
+console.log(result);
+
+
+
+IIFE:
+let arr = ["hello", "world"];
+let result = arr.map(val => val.charAt(0).toUpperCase() + val.slice(1));
+console.log(result);
+
+
+
+
+
+c. Sum of all numbers in an array
+
+anaonyms function:
+let arr = [1,2,3,4,5];
+let sum = arr.reduce(function(acc, val) {
+  return acc + val;
+}, 0);
+console.log(sum);
+
+
+
+IIFE:
+let arr = [1,2,3,4,5];
+let sum = arr.reduce((acc, val) => acc + val, 0);
+console.log(sum);
+
+
+
+
+
+d. Return all the prime numbers in an array
+
+anonymous function:
+let arr = [1,2,3,4,5];
+let result = arr.filter(function(val) {
+  for (let i = 2; i < val; i++) {
+    if (val % i === 0) {
+      return false;
+    }
+  }
+  return val !== 1;
+});
+console.log(result);
+
+
+
+
+IIFE:
+let arr = [1,2,3,4,5];
+let result = arr.filter(val => {
+  for (let i = 2; i < val; i++) {
+    if (val % i === 0) {
+      return false;
+    }
+  }
+  return val !== 1;
+});
+console.log(result);
+
+
+
+
+
+
+e. Return all the palindromes in an array
+
+anonymous function:
+let arr = ["hello", "world", "level"];
+let result = arr.filter(function(val) {
+  return val.split('').reverse().join('') === val;
+});
+console.log(result);
+
+
+
+IIFE:
+let arr = ["hello", "world", "level"];
+let result = arr.filter(val => val.split('').reverse().join('') === val);
+console.log(result);
+
+
+
+
+
+
+
+f.Return median of two sorted arrays of the same size
+
+anonymous function:
+var medianSortedArrays = function(arr1, arr2) {
+  let combined = arr1.concat(arr2);
+  combined.sort((a,b) => a-b);
+  let mid = Math.floor(combined.length/2);
+  return combined.length % 2 !== 0 ? combined[mid] : (combined[mid-1] + combined[mid]) / 2;
+};
+
+
+
+
+
+IIFE:
+var medianSortedArrays = (function(arr1, arr2) {
+  let combined = arr1.concat(arr2);
+  combined.sort((a,b) => a-b);
+  let mid = Math.floor(combined.length/2);
+  return combined.length % 2 !== 0 ? combined[mid] : (combined[mid-1] + combined[mid]) / 2;
+})(arr1, arr2);
+
+
+
+
+
+
+
+g.Remove duplicates from any array
+
+anonymous function:
+removeDuplicates = function(arr) {
+  return Array.from(new Set(arr));
+};
+
+
+
+IIFE:
+var removeDuplicates = (function(arr) {
+  return Array.from(new Set(arr));
+})(arr);
+
+
+
+
+
+
+
+h. Rotate an array by k times
+
+anonymous function:
+var rotateArray = function(arr, k) {
+  for (let i = 0; i < k; i++) {
+    arr.unshift(arr.pop());
+  }
+  return arr;
+};
+
+
+
+
+IIFE:
+var rotateArray = (function(arr, k) {
+  for (let i = 0; i < k; i++) {
+    arr.unshift(arr.pop());
+  }
+  return arr;
+})(arr, k);
+
+
+
+
+
+
+
+
+
+3. Do the below programs in arrow functions
+
+a. Print odd numbers in an array
+
+var printOdd = arr => arr.filter(num => num % 2 !== 0);
+
+
+
+
+b. convert all the strings to title caps in a string array
+
+var toTitleCase = arr => arr.map(str => str.charAt(0).toUpperCase() + str.slice(1));
+
+
+
+
+c. sum of all numbers in an array
+
+var sumArray = arr => arr.reduce((acc, cur) => acc + cur, 0);
+
+
+
+
+d. Return all the prime numbers in an array
+
+var findPrimes = arr => arr.filter(num => {
+  for(let i = 2; i < num; i++)
+    if(num % i === 0) return false;
+  return num !== 1;
+});
+
+
+
+
+e. Return all the palindromes in an array
+
+var findPalindromes = arr => arr.filter(word => word.split('').reverse().join('') === word);
+
